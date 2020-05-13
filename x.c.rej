@@ -1,0 +1,56 @@
+--- x.c
++++ x.c
+@@ -1683,13 +1703,21 @@ focus(XEvent *ev)
+ 		XSetICFocus(xw.xic);
+ 		win.mode |= MODE_FOCUSED;
+ 		xseturgency(0);
+-		if (IS_SET(MODE_FOCUS))
+-			ttywrite("\033[I", 3, 0);
++		if (IS_SET(MODE_FOCUS)) { ttywrite("\033[I", 3, 0); }
++		if (!focused) {
++			focused = true;
++			xloadcols();
++			redraw();
++		}
+ 	} else {
+ 		XUnsetICFocus(xw.xic);
+ 		win.mode &= ~MODE_FOCUSED;
+-		if (IS_SET(MODE_FOCUS))
+-			ttywrite("\033[O", 3, 0);
++		if (IS_SET(MODE_FOCUS)) { ttywrite("\033[O", 3, 0); }
++		if (focused) {
++			focused = false;
++			xloadcols();
++			redraw();
++		}
+ 	}
+ }
+ 
+--- x.c
++++ x.c
+@@ -1691,19 +1699,21 @@ focus(XEvent *ev)
+ 		XSetICFocus(xw.xic);
+ 		win.mode |= MODE_FOCUSED;
+ 		xseturgency(0);
+-		if (IS_SET(MODE_FOCUS)) { ttywrite("\033[I", 3, 0); }
++		if (IS_SET(MODE_FOCUS))
++			ttywrite("\033[I", 3, 0);
+ 		if (!focused) {
+ 			focused = true;
+-			xloadcols();
++			xloadalpha();
+ 			redraw();
+ 		}
+ 	} else {
+ 		XUnsetICFocus(xw.xic);
+ 		win.mode &= ~MODE_FOCUSED;
+-		if (IS_SET(MODE_FOCUS)) { ttywrite("\033[O", 3, 0); }
++		if (IS_SET(MODE_FOCUS))
++			ttywrite("\033[O", 3, 0);
+ 		if (focused) {
+ 			focused = false;
+-			xloadcols();
++			xloadalpha();
+ 			redraw();
+ 		}
+ 	}
