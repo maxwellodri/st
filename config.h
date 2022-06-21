@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fira\ Code\ Nerd\ Font:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Fira Code Nerd Font:pixelsize=12:antialias=true:autohint=true";
 static int borderpx = 1;
 
 /*
@@ -74,7 +74,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st-256color";
+char *termname = "St";
 
 /*
  * spaces per tab
@@ -91,7 +91,7 @@ char *termname = "st-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 4;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -122,6 +122,8 @@ static const char *colorname[] = {
 	"#555555",
 	"gray90", /* default foreground colour */
 	"black", /* default background colour */
+    "#141720",
+    "#141414"
 };
 
 
@@ -130,7 +132,7 @@ static const char *colorname[] = {
  * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultfg = 258;
-unsigned int defaultbg = 259;
+unsigned int defaultbg = 260;
 unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 
