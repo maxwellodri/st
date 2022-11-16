@@ -6,6 +6,11 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "Fira Code Nerd Font:pixelsize=12:antialias=true:autohint=true";
+//static char *font2[] = {
+///*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
+///*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+//};
+static char *font2[] = { "FiraCode Nerd Font Mono", "Noto Color Emoji", "Twemoji" }; //fonts are ttf-joypixels, ttf-twemoji, and nerd-fonts-fira-code
 static int borderpx = 1;
 
 /*
