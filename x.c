@@ -1904,6 +1904,7 @@ xbell(void)
 		xseturgency(1);
 	if (bellvolume)
 		XkbBell(xw.dpy, xw.win, bellvolume, (Atom)NULL);
+	system("notify-send -t 1000 -u critical -h \"string:x-canonical-private-synchronous:terminal_bell\" \"🔔🖥\"");
 }
 
 void
