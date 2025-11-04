@@ -199,20 +199,20 @@ static MouseShortcut mshortcuts[] = {
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
-	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
-	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
-	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0}, 0 },
+	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0}, 0 },
+	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0}, 0 },
+	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0}, 0 },
+	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1}, 0 },
+	{ TERMMOD,              XK_Next,        zoom,           {.f = -1}, 0 },
+	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0}, 0 },
+	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0}, 0 },
+	{ TERMMOD,              XK_V,           clippaste,      {.i =  0}, 0 },
+	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0}, 0 },
+	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0}, 0 },
+	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0}, 0 },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1},-1 },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1},-1 },
 };
 
 /*
@@ -463,6 +463,8 @@ static Key key[] = {
 	{ XK_F33,           XK_NO_MOD,      "\033[20;5~",    0,    0},
 	{ XK_F34,           XK_NO_MOD,      "\033[21;5~",    0,    0},
 	{ XK_F35,           XK_NO_MOD,      "\033[23;5~",    0,    0},
+    { XK_Page_Up,       ShiftMask,      "\033[5;2~",     0,    0},
+    { XK_Page_Down,     ShiftMask,      "\033[6;2~",     0,    0},
 };
 
 /*

@@ -27,6 +27,7 @@ typedef struct {
 	KeySym keysym;
 	void (*func)(const Arg *);
 	const Arg arg;
+    int altscrn;
 } Shortcut;
 
 typedef struct {
@@ -1996,12 +1997,13 @@ kpress(XEvent *ev)
 		len = XLookupString(e, buf, sizeof buf, &ksym, NULL);
 	}
 	/* 1. shortcuts */
-	for (bp = shortcuts; bp < shortcuts + LEN(shortcuts); bp++) {
-		if (ksym == bp->keysym && match(bp->mod, e->state)) {
-			bp->func(&(bp->arg));
-			return;
-		}
-	}
+    for (bp = shortcuts; bp < shortcuts + LEN(shortcuts); bp++) {
+        if (ksym == bp->keysym && match(bp->mod, e->state) &&
+            (!bp->altscrn || (bp->altscrn == (tisaltscr() ? 1 : -1)))) {
+            bp->func(&(bp->arg));
+            return;
+        }
+    }
 
 	/* 2. custom keys from config.h */
 	if ((customkey = kmap(ksym, e->state))) {
