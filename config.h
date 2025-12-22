@@ -187,9 +187,9 @@ static MouseShortcut mshortcuts[] = {
 	{ XK_ANY_MOD,           Button4, kscrollup,      {.i = mousescrollincrement},		0, /* !alt */ -1 },
 	{ XK_ANY_MOD,           Button5, kscrolldown,    {.i = mousescrollincrement},		0, /* !alt */ -1 },
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
-	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
+	//{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
-	{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
+	//{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
 	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
 };
 
@@ -211,8 +211,10 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0}, 0 },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0}, 0 },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0}, 0 },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1},-1 },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1},-1 },
+	//{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1},-1 },
+	//{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1},-1 },
+    //{ ShiftMask,            XK_Page_Up,     ttysend,        {.s = "\033[5;2~"}, 0 },
+    //{ ShiftMask,            XK_Page_Down,   ttysend,        {.s = "\033[6;2~"}, 0 },
 };
 
 /*
@@ -463,8 +465,8 @@ static Key key[] = {
 	{ XK_F33,           XK_NO_MOD,      "\033[20;5~",    0,    0},
 	{ XK_F34,           XK_NO_MOD,      "\033[21;5~",    0,    0},
 	{ XK_F35,           XK_NO_MOD,      "\033[23;5~",    0,    0},
-    { XK_Page_Up,       ShiftMask,      "\033[5;2~",     0,    0},
-    { XK_Page_Down,     ShiftMask,      "\033[6;2~",     0,    0},
+    //{ XK_Page_Up,       ShiftMask,      "\033[5;2~",     0,    0},
+    //{ XK_Page_Down,     ShiftMask,      "\033[6;2~",     0,    0},
 };
 
 /*
